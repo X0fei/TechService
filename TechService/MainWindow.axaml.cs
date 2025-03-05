@@ -16,6 +16,7 @@ public partial class MainWindow : Window
         {
             if (Login.Text == user.Login && Password.Text == user.Password)
             {
+                Utils.Context.clientId = user.Id;
                 RequestListWindow requestListWindow = new();
                 requestListWindow.Show();
                 Close();

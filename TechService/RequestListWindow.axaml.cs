@@ -14,4 +14,11 @@ public partial class RequestListWindow : Window
         InitializeComponent();
         RequestListBox.ItemsSource = displayList;
     }
+
+    private void CreateRequestButton_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+    {
+        AddEditRequest addEditRequest = new();
+        addEditRequest.Show();
+        Close();
+    }
 }

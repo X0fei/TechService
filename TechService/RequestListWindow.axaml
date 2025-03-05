@@ -7,6 +7,9 @@
 		x:CompileBindings="False"
         Title="RequestListWindow">
 	<StackPanel>
+		<Button
+			Click="CreateRequestButton_Click"
+			Content="Создать заявку"/>
 		<ListBox
 			Name="RequestListBox"
 			Height="450">

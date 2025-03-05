@@ -20,5 +20,10 @@ namespace TechService.Utils
             .Include(r => r.Client)
             .Include(r => r.Status)
             .ToList());
+        public static List<Equipment> Equipment = new List<Equipment>(DbContext.Equipment
+            .Include(e => e.EquipmentType)
+            .ToList());
+        public static List<Malfunction> Malfunctions = new List<Malfunction>(DbContext.Malfunctions.ToList());
+        public static int clientId { get; set; }
     }
 }
