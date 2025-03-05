@@ -4,6 +4,62 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="450"
         x:Class="TechService.RequestListWindow"
+		x:CompileBindings="False"
         Title="RequestListWindow">
-	
+	<StackPanel>
+		<ListBox
+			Name="RequestListBox"
+			Height="450">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<StackPanel>
+						<TextBlock>
+							<Run
+								Text="Номер заявки:"/>
+							<Run
+								Text="{Binding Id}"/>
+						</TextBlock>
+						<TextBlock>
+							<Run
+								Text="Дата создания:"/>
+							<Run
+								Text="{Binding Date}"/>
+						</TextBlock>
+						<TextBlock>
+							<Run
+								Text="Оборудование:"/>
+							<Run
+								Text="{Binding Equipment.Name}"/>
+							<Run
+								Text="{Binding Equipment.SerialNumber}"/>
+						</TextBlock>
+						<TextBlock>
+							<Run
+								Text="Тип неисправности:"/>
+							<Run
+								Text="{Binding Malfunction.Name}"/>
+						</TextBlock>
+						<TextBlock>
+							<Run
+								Text="Клиент:"/>
+							<Run
+								Text="{Binding Client.Login}"/>
+						</TextBlock>
+						<TextBlock>
+							<Run
+								Text="Статус:"/>
+							<Run
+								Text="{Binding Status.Name}"/>
+						</TextBlock>
+						<TextBlock>
+							<Run
+								Text="Описание:"/>
+							<Run
+								Text="{Binding ProblemDescription}"/>
+						</TextBlock>
+					</StackPanel>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+	</StackPanel>
 </Window>

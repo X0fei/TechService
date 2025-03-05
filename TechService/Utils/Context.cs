@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,5 +13,12 @@ namespace TechService.Utils
     {
         public static User21Context DbContext { get; set; } = new();
         public static List<User> Users = new List<User>(DbContext.Users.ToList());
+        public static List<Request> Requests = new List<Request>(DbContext.Requests
+            .Include(r => r.Equipment)
+            .Include(r => r.Malfunction)
+            .Include(r => r.Priority)
+            .Include(r => r.Client)
+            .Include(r => r.Status)
+            .ToList());
     }
 }
