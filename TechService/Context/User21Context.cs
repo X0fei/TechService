@@ -137,6 +137,11 @@ public partial class User21Context : DbContext
             entity.Property(e => e.Cost).HasColumnName("cost");
             entity.Property(e => e.RequestId).HasColumnName("request_id");
             entity.Property(e => e.Time).HasColumnName("time");
+
+            entity.HasOne(d => d.Request).WithOne(p => p.Report)
+                .HasForeignKey<Report>(d => d.RequestId)
+                .OnDelete(DeleteBehavior.Restrict)
+                .HasConstraintName("report_request_fk");
         });
 
         modelBuilder.Entity<ReportMaterial>(entity =>
@@ -149,6 +154,16 @@ public partial class User21Context : DbContext
 
             entity.Property(e => e.MaterialId).HasColumnName("material_id");
             entity.Property(e => e.ReportId).HasColumnName("report_id");
+
+            entity.HasOne(d => d.Material).WithMany()
+                .HasForeignKey(d => d.MaterialId)
+                .OnDelete(DeleteBehavior.Restrict)
+                .HasConstraintName("report_material_material_fk");
+
+            entity.HasOne(d => d.Report).WithMany()
+                .HasForeignKey(d => d.ReportId)
+                .OnDelete(DeleteBehavior.Restrict)
+                .HasConstraintName("report_material_report_fk");
         });
 
         modelBuilder.Entity<Request>(entity =>

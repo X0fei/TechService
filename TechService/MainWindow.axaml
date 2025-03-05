@@ -5,5 +5,17 @@
         mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="450"
         x:Class="TechService.MainWindow"
         Title="TechService">
-	
+	<StackPanel>
+		<TextBlock
+			Text="Вход"/>
+		<TextBox
+			Name="Login"
+			Watermark="Логин"/>
+		<TextBox
+			Name="Password"
+			Watermark="Пароль"/>
+		<Button
+			Click="LoginButton_Click"
+			Content="Вход"/>
+	</StackPanel>
 </Window>

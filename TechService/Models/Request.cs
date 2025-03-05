@@ -29,5 +29,7 @@ public partial class Request
 
     public virtual Priority? Priority { get; set; }
 
+    public virtual Report? Report { get; set; }
+
     public virtual Status Status { get; set; } = null!;
 }

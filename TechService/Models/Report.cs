@@ -12,4 +12,6 @@ public partial class Report
     public int Time { get; set; }
 
     public decimal Cost { get; set; }
+
+    public virtual Request Request { get; set; } = null!;
 }
